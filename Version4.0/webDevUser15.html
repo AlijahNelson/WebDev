@@ -4,15 +4,209 @@
 	Date Completed:
  -->
 <head>
+WebDevUser15.html
+    <title>My First Website</title>
 
-<title> Web Development User #15 </title>
+        
+<link href="CSS/SampleCSS.css" rel="stylesheet" type="text/css">
+        <meta name="author" content="your name">
+
+        <meta name="description" content="">
+
+
+<!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->        
+
+        <link rel="stylesheet" href="style.css" type="text/css">
+
+        
 
 </head>
-
+<button type="button"
+style="background-color:yellow;margin-left:auto;margin-right:auto;display:block;margin-top:22%;margin-bottom:0%;" onClick="alert('GO Sabers!');" >
+Click Me!</button>
 <body>
 
-<center> My name is User #15</center>
+<script language="JavaScript">
 
-</body>
+var startTime=new Date();
+var endTime=new Date();
+var startPressed=false;
+var bgChangeStarted=false;
+var maxWait=20;
+var timerID;
 
-</html>
+function startTest()
+{
+ document.body.style.background=document.response.bgColorChange.options[document.response.bgColorChange.selectedIndex].text;
+ bgChangeStarted=true;
+ startTime=new Date();
+}
+
+function remark(responseTime)
+{
+ var responseString="";
+ if (responseTime < 0.10)
+ responseString="Well done!";
+ if (responseTime >= 0.10 && responseTime < 0.20)
+ responseString="Nice!";
+ if (responseTime >=0.20 && responseTime < 0.30)
+ responseString="Could be better...";
+ if (responseTime >=0.30 && responseTime < 0.60)
+ responseString="Keep practising!";
+ if (responseTime >=0.60 && responseTime < 1)
+ responseString="Have you been drinking?";
+ if (responseTime >=1)
+ responseString="Did you fall asleep?";
+
+ return responseString;
+}
+
+function stopTest()
+{
+ if(bgChangeStarted)
+ {
+ endTime=new Date();
+ var responseTime=(endTime.getTime()-startTime.getTime())/1000;
+
+ document.body.style.background="white"; 
+ alert("Your response time is: " + responseTime + " seconds " + "\n" + remark(responseTime));
+ startPressed=false;
+ bgChangeStarted=false;
+ }
+ else
+ {
+ if (!startPressed)
+ {
+ alert("press start first to start test");
+ }
+ else
+ { 
+ clearTimeout(timerID);
+ startPressed=false; 
+ alert("cheater! you pressed too early!");
+ } 
+ }
+}
+
+var randMULTIPLIER=0x015a4e35;
+var randINCREMENT=1;
+var today=new Date();
+var randSeed=today.getSeconds();
+function randNumber()
+{
+ randSeed = (randMULTIPLIER * randSeed + randINCREMENT) % (1 << 31);
+ return((randSeed >> 15) & 0x7fff) / 32767;
+}
+
+function startit()
+{
+ if(startPressed)
+ {
+ alert("Already started. Press stop to stop");
+ return;
+ }
+ else
+ {
+ startPressed=true; 
+ timerID=setTimeout('startTest()', 6000*randNumber());
+ }
+}
+
+</script>
+<p>Test your Response time!</p>
+Click on "Start" first, and wait until the background color changes. As soon as it changes, hit "stop!"
+
+
+<form name="response">
+Change background color in: 
+<select name="bgColorChange">
+<option selected>deeppink
+<option>aliceblue
+<option>crimson
+<option>darkkhaki
+<option>cadetblue
+<option>darkorchid
+<option>coral
+<option>chocolate
+<option>mediumslateblue
+<option>tomato
+<option>darkslategray
+<option>limegreen
+<option>cornflowerblue
+<option>darkolivegreen
+</select>
+<input type="button" value="start" onClick="startit()">
+<input type="button" value="stop" onClick="stopTest()">
+</form>
+<!-- webpage content goes here in the body -->
+
+
+        <div id="page">
+
+                <div id="logo">
+
+                        <h1><a href="/" id="logoLink">web dev test site</a></h1>
+
+                </div>
+
+                <div id="nav">
+
+                        <ul>
+
+                                <li><a href="#/home.html">Home</a></li>
+
+                                <li><a href="#/about.html">About</a></li>
+
+                                <li><a href="#/contact.html">Contact</a></li>
+
+                        </ul>        
+
+                </div>
+
+                <div id="content">
+
+                        <h2>this is not a test</h2>
+                        <h3>this is how we do it</h3>
+                        <p>
+
+                                This is my first webpage! I was able to code all the HTML and CSS in order to make it. Watch out world of web design here I come!
+
+                        </p>
+
+                        <p>
+
+                                I can use my skills here to create websites for my business, my friends and family, my C.V, blog or articles. As well as any games or more experiment stuff (which is what the web is really all about).
+
+                        </p>
+
+                </div>
+             <img src=/Users/221845/Desktop/stb2.jpg alt="picture of cover of Star Wars: Battlefront 2">
+<h2>My Top 5 Favorite video games</h2>
+ <table>
+ <tr><th>Rank</th><th>game</th><th>publishing year</th></tr>
+ <tr><td>1</td><td>Star wars Battlefront 2</td><td>2005</td></tr>
+ <tr><td>2</td><td>SSX 3</td><td>2003</td></tr>
+ <tr><td>3</td><td>Super smash bros melee</td><td>2001</td></tr>
+ <tr><td>4</td><td>Skyrim</td><td>2011</td></tr>
+ <tr><td>5</td><td>Overwatch</td><td>2016</td></tr>
+ </table>
+    
+                <div id="footer">
+                        <h4>haveing fun</h4>
+                        <h5>don't die</h5>
+                        <h5>live</h5>    
+                    <p>
+
+                                Webpage made by <a href="/" target="_blank">[Alijah Nelson]</a>
+
+                        </p>
+
+                </div>
+
+        </div>
+
+
+
+
+
+</body></html>
